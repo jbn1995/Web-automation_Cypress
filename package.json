@@ -1,0 +1,34 @@
+{
+  "name": "cucumber",
+  "version": "2.0.0",
+  "description": "Cucumber framework",
+  "main": "index.js",
+  "scripts": {
+    "cypress:run": ".\\node_modules\\.bin\\cypress run",
+    "allurereport": "npm run cypress:run --browser chrome --reporter mocha-allure-reporter",
+    "generate-allurereport": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "finalgenerate-allurereport": "npm run allurereport && npm run generate-allurereport"
+    
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "jbn",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.41.2",
+    "@shelex/cypress-allure-plugin": "^2.40.1",
+    "allure-commandline": "^2.27.0",
+    "allure-playwright": "^2.12.0",
+    "cypress": "^13.6.4",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-mochawesome-reporter": "^3.8.1",
+    "cypress-xpath": "^2.0.1",
+    "mocha-allure-reporter": "^1.4.0",
+    "mochawesome": "^7.1.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "step_definitions": "cypress/e2e"
+  }
+}
